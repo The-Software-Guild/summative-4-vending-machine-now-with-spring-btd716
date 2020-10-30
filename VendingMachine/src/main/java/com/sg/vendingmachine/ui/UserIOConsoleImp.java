@@ -139,6 +139,11 @@ public class UserIOConsoleImp implements UserIO {
         return result;
     
     }
+
+    @Override
+    public void print(Double p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

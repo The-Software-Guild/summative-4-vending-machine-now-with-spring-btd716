@@ -43,7 +43,7 @@ public class VendingMachineController {
                         selectItem();
                         break;
                     case 3:
-                        displayItemsList(VendingMachineContents drinkMap);
+                        //displayItemsList(VendingMachineContents drinkMap);
                         break;
                     case 4:
                         keepGoing = false;
