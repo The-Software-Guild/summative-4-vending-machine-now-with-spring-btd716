@@ -8,7 +8,11 @@ import com.sg.vendingmachine.dao.VendingMachineDAO;
 import com.sg.vendingmachine.dao.VendingMachineDAOException;
 import com.sg.vendingmachine.ui.VendingMachineView;
 import com.sg.vendingmachine.dto.VendingMachineContents;
+import static com.sg.vendingmachine.dto.VendingMachineContents.drinkMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.*;
+import java.io.*;
 
 public class VendingMachineController {
     
@@ -22,7 +26,7 @@ public class VendingMachineController {
     }
     
     // main part of program ==> the switch cases
-    public void run() {
+    public void run() throws VendingMachineDAOException {
         boolean keepGoing = true;
         int menuSelection = 0;
         try {
@@ -39,7 +43,7 @@ public class VendingMachineController {
                         selectItem();
                         break;
                     case 3:
-                        displayItemsList();
+                        displayItemsList(VendingMachineContents drinkMap);
                         break;
                     case 4:
                         keepGoing = false;
@@ -65,7 +69,7 @@ public class VendingMachineController {
     private void insertFunds() throws VendingMachineDAOException {
         view.displayInsertionBanner();
         VendingMachineContents newTransaction = view.displayFundsInsertion();
-        dao.insertFunds(newTransaction.getUsrFunds(), newTransaction);
+        dao.insertFunds(newTransaction.getUsrFunds());
         view.displayInsertionSuccessBanner();
     }
     
@@ -86,13 +90,13 @@ public class VendingMachineController {
             switch(itemSelect)
             {
                 case 1:
-                    System.out.println("Coke costs $0.75");
+                    System.out.println("Coke costs $0.75 \n");
                     break;
                 case 2:
-                    System.out.println("Sprite costs $0.75");
+                    System.out.println("Sprite costs $0.75 \n");
                     break;
                 case 3:
-                    System.out.println("Dr Pepper costs $0.75");
+                    System.out.println("Dr Pepper costs $0.75 \n");
                     break;
                 case 4:
                     keepGoing = false;
@@ -110,16 +114,11 @@ public class VendingMachineController {
     
     
     // choice 3
-    private void displayItemsList() throws VendingMachineDAOException {
+    public void displayItemsList(VendingMachineContents drinkMap) throws VendingMachineDAOException {
         view.displayItemListBanner();
-        List<VendingMachineContents> itemsList = dao.getAllItems();
-        view.displayItemsList(itemsList);
+        dao.getAllItems();
+        view.displayItemsList(drinkMap);
     }
-    
-    
-    
-    
-    
     
     
     

@@ -21,10 +21,11 @@ public class VendingMachineDAOFileImp implements VendingMachineDAO {
     private Map <String, VendingMachineContents> itemsAvailable = new HashMap<>();
 
     @Override
-    public VendingMachineContents insertFunds(BigDecimal usrFunds, VendingMachineContents vmBank) 
+    public BigDecimal insertFunds(BigDecimal usrFunds) 
             throws VendingMachineDAOException {
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usrFunds;
+        
     }
 
     @Override
@@ -35,12 +36,10 @@ public class VendingMachineDAOFileImp implements VendingMachineDAO {
     }
 
     @Override
-    public VendingMachineContents getAllItems(HashMap<String, Double> drinkMap) 
+    public HashMap<String, Double> getAllItems() 
             throws VendingMachineDAOException {
         
-        
-        //return drinkMap;
-        
+        return VendingMachineContents.drinkMap;
     }
             
     

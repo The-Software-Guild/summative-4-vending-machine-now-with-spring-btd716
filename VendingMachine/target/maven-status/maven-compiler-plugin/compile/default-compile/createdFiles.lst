@@ -1,4 +1,4 @@
-com\mthree\vendingmachine\Application.class
 com\sg\vendingmachine\ui\UserIO.class
-com\sg\vendingmachine\dao\VendingMachineDAOFileImp.class
 com\sg\vendingmachine\ui\VendingMachineView.class
+com\mthree\vendingmachine\Application.class
+com\sg\vendingmachine\dao\VendingMachineDAOFileImp.class

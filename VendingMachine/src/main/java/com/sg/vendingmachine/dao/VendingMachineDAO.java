@@ -12,7 +12,14 @@ import java.util.List;
 public interface VendingMachineDAO {
     
     // corresponds to number 1
-    VendingMachineContents insertFunds(BigDecimal usrFunds, VendingMachineContents vmBank)
+
+    /**
+     *
+     * @param usrFunds
+     * @return
+     * @throws VendingMachineDAOException
+     */
+    BigDecimal insertFunds(BigDecimal usrFunds)
             throws VendingMachineDAOException;
     
     // corresponds to number 2 in switch cases 
@@ -20,7 +27,7 @@ public interface VendingMachineDAO {
             throws VendingMachineDAOException;
     
     // corresponds to number 3 in switch cases --> lists all available items in vending machine
-    VendingMachineContents getAllItems(HashMap<String, Double> drinkMap) 
+    HashMap<String, Double> getAllItems() 
             throws VendingMachineDAOException;
     
     

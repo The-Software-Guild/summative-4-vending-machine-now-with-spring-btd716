@@ -6,7 +6,10 @@ package com.sg.vendingmachine.ui;
 
 import com.sg.vendingmachine.dto.VendingMachineContents;
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 
 public class VendingMachineView {
@@ -38,7 +41,7 @@ public class VendingMachineView {
     // user inserting funds ==> "1. Insert Funds"
     public VendingMachineContents displayFundsInsertion(){
         BigDecimal usrFunds = io.readBigDecimal("Please Insert Funds");
-        VendingMachineContents currentTransaction= new VendingMachineContents(usrFunds);
+        VendingMachineContents currentTransaction = new VendingMachineContents(usrFunds);
         currentTransaction.setUsrFunds(usrFunds);
         return currentTransaction;
     }
@@ -74,15 +77,16 @@ public class VendingMachineView {
         io.print("<--- Here's what we have available: ---> \n");
     }
     // available items in machine ==> "3. Available Items Remaining in Machine"
-    public void displayItemsList (List<VendingMachineContents> items) {
-        for (VendingMachineContents currentItem : items)
-        {
-            String itemInfo = String.format("#%s : %s %s", 
-                currentItem.getItemName(),
-                currentItem.getItemCost(),
-                currentItem.getItemCount());
-            io.print(itemInfo);
-        }
+
+    /**
+     *
+     * @param drinkMap
+     */
+    public void displayItemsList (VendingMachineContents drinkMap) {
+        
+        System.out.print(VendingMachineContents.getKeySet());
+        System.out.print(VendingMachineContents.getValues());
+        
         io.readString("Please hit enter to continue.");
     }    
     

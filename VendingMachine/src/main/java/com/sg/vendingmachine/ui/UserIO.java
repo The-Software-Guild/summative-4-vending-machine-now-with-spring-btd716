@@ -33,5 +33,7 @@ public interface UserIO {
     BigDecimal readBigDecimal(String prompt, BigDecimal min, BigDecimal max);
 
     //public void print(String string, String string0, String string1, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11);
+
+    public void print(Double p);
     
 }
